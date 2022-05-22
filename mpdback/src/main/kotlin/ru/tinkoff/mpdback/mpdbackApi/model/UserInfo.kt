@@ -11,10 +11,11 @@ import javax.persistence.*
 data class UserInfo(
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     val id: Long = 0,
 
-    @Column(name = "user", nullable = false, unique = false)
+    @Column(name = "userId", nullable = false, unique = false)
     val userId : Long = 0,
 
     @Column(name = "subject", nullable = false, unique = false)

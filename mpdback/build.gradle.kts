@@ -45,10 +45,10 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.mockk:mockk:1.12.3")
 
-	implementation("com.auth0:java-jwt:3.19.2")
-	implementation("org.springframework.security:spring-security-core:5.6.3")
-	implementation("org.springframework.security:spring-security-web:5.6.3")
-	implementation("org.springframework.security:spring-security-config:5.6.3")
+//	implementation("com.auth0:java-jwt:3.19.2")
+//	implementation("org.springframework.security:spring-security-core:5.6.3")
+//	implementation("org.springframework.security:spring-security-web:5.6.3")
+//	implementation("org.springframework.security:spring-security-config:5.6.3")
 
 	implementation("io.jsonwebtoken:jjwt:0.9.1")
 

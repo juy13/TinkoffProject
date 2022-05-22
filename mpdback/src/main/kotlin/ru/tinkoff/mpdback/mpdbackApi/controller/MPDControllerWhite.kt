@@ -10,7 +10,7 @@ class MPDControllerWhite(private val mpdService: MPDService) {
 
     @PostMapping("/add-record")
     fun addRecord(@RequestBody userInfo: UserInfo) {
-
+        mpdService.addRecord(userInfo)
     }
 
 

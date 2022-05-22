@@ -1,11 +1,12 @@
 package ru.tinkoff.mpdback.mpdbackApi.service
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
 import ru.tinkoff.mpdback.mpdbackApi.model.UserInfo
+import ru.tinkoff.mpdback.mpdbackApi.repository.UserInfoRepository
 
 @Service
-class MPDService(
+class MPDService(private val userInfoRepository: UserInfoRepository,
+                 private val registrationRepository: RegistrationRepository
 ) {
 
 //    fun newRecord(userRecord: UserRecord) =
@@ -22,6 +23,10 @@ class MPDService(
 //    }
 
     fun addRecord(userInfo: UserInfo) {
+        userInfoRepository.save(userInfo)
+    }
+
+    private fun testUserId(userId : Long) {
 
     }
 
