@@ -1,0 +1,10 @@
+--INSERT INTO records(login, password) VALUES('Bratislava', '432000');
+--INSERT INTO records(login, password) VALUES('Budapest', '1759000');
+--INSERT INTO records(login, password) VALUES('Prague', '1280000');
+--INSERT INTO records(login, password) VALUES('Warsaw', '1748000');
+--INSERT INTO records(login, password) VALUES('Los Angeles', '3971000');
+--INSERT INTO records(login, password) VALUES('New York', '8550000');
+--INSERT INTO records(login, password) VALUES('Edinburgh', '464000');
+--INSERT INTO records(login, password) VALUES('Berlin', '3671000');
+--INSERT INTO users(login) VALUES('FT44d9CW4L44/5zyKxY1fg==');
+--INSERT INTO users(login) VALUES('LOH');
