@@ -1,8 +1,8 @@
-package ru.tinkoff.mpdback.mpdback.controller
+package ru.tinkoff.mpdback.mpdbackApi.controller
 
 import org.springframework.web.bind.annotation.*
-import ru.tinkoff.mpdback.mpdback.model.UserInfo
-import ru.tinkoff.mpdback.mpdback.service.MPDService
+import ru.tinkoff.mpdback.mpdbackApi.model.UserInfo
+import ru.tinkoff.mpdback.mpdbackApi.service.MPDService
 
 @RestController
 @RequestMapping("/white-api")

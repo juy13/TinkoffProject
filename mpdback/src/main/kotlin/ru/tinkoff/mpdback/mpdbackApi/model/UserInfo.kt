@@ -1,4 +1,4 @@
-package ru.tinkoff.mpdback.mpdback.model
+package ru.tinkoff.mpdback.mpdbackApi.model
 
 import lombok.AllArgsConstructor
 import lombok.NoArgsConstructor

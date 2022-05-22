@@ -1,10 +1,10 @@
-package ru.tinkoff.mpdback.mpdback.repository
+package ru.tinkoff.mpdback.mpdbackApi.repository
 
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
 import ru.tinkoff.mpdback.jwt.model.RegistrationUser
-import ru.tinkoff.mpdback.mpdback.model.UserInfo
+import ru.tinkoff.mpdback.mpdbackApi.model.UserInfo
 
 
 interface UserInfoRepository : JpaRepository<UserInfo, Long> {

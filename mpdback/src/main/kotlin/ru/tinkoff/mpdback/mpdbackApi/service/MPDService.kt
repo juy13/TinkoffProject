@@ -1,8 +1,8 @@
-package ru.tinkoff.mpdback.mpdback.service
+package ru.tinkoff.mpdback.mpdbackApi.service
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
-import ru.tinkoff.mpdback.mpdback.model.UserInfo
+import ru.tinkoff.mpdback.mpdbackApi.model.UserInfo
 
 @Service
 class MPDService(
