@@ -56,7 +56,7 @@
 //				(strToEncrypt.toByteArray(charset("UTF-8"))))
 //		} catch (e: Exception) {
 //
-//			println("Error while encrypting: $e")
+//			println("MPDError while encrypting: $e")
 //		}
 //		return null
 //	}
