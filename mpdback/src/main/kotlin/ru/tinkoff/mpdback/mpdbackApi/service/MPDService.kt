@@ -232,6 +232,7 @@ class MPDService(
                     val resp = ResponseEntity.ok().headers(headers).contentLength(
                         file.length()
                     ).contentType(MediaType.parseMediaType("application/txt")).body<Any>(resource)
+                    Files.deleteIfExists(Path(path + name))
                     FileDownload(FileRc.FileOk, resp)
                 }
             } else {

@@ -21,7 +21,7 @@ class DBFindData(val rc: DBrc, val answer: List<UserInfoLite>?) : DBOperations()
 
 class AuthUser(val rc : AuthRc) : AuthOperations()
 class AuthUserErr(val rc : AuthRc) : AuthOperations()
-class AuthUserOk(val rc : AuthRc, val token : String) : AuthOperations()
+class AuthUserOk(val rc : AuthRc, val id: Long, val token : String) : AuthOperations()
 
 class FileUpload(val rc : FileRc, val id : Long = 0) : FileOperations()
 class FileDownload(val rc : FileRc, val response : ResponseEntity<*>? = null) : FileOperations()

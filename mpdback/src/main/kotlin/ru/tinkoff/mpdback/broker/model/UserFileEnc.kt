@@ -1,6 +1,5 @@
 package ru.tinkoff.mpdback.broker.model
 
-
 import lombok.AllArgsConstructor
 import lombok.NoArgsConstructor
 import ru.tinkoff.mpdback.enums.Status
@@ -14,12 +13,11 @@ import javax.crypto.Cipher
 import javax.crypto.spec.SecretKeySpec
 import javax.persistence.*
 
-
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "data_enc")
-data class UserInfoEnc(
+@Table(name = "file_enc")
+data class UserFileEnc(
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,14 +27,9 @@ data class UserInfoEnc(
     @Column(name = "userId", nullable = false, unique = false)
     val userId: Long = 0,
 
-    @Column(name = "subject", nullable = true, unique = false)
-    val subject: String = "unknown",
+    @Column(name = "file", nullable = true, unique = true)
+    val file: String = "unknown",
 
-    @Column(name = "login", nullable = true, unique = false)
-    val login: String = "unknown",
-
-    @Column(name = "password", nullable = true, unique = false)
-    val password: String = "unknown"
 ) {
     companion object {
 
@@ -55,54 +48,70 @@ data class UserInfoEnc(
             return null
         }
 
-        private fun encrypt(strToEncrypt: String, secret: String): String {
+        private fun encrypt(strToEncrypt: ByteArray, secret: String): ByteArray {
             try {
                 val secretKey = setKey(secret)
                 val cipher = Cipher.getInstance("AES/ECB/PKCS5Padding")
                 cipher.init(Cipher.ENCRYPT_MODE, secretKey)
-                return Base64.getEncoder().encodeToString(
-                    cipher.doFinal
-                        (strToEncrypt.toByteArray(charset("UTF-8")))
-                )
+                return cipher.doFinal(strToEncrypt)
             } catch (e: Exception) {
 
                 println("MPDError while encrypting: $e")
             }
-            return ""
+            return byteArrayOf()
         }
 
-        private fun decrypt(strToDecrypt: String?, secret: String): String {
+        private fun decrypt(strToDecrypt: ByteArray, secret: String): ByteArray {
             try {
                 val secretKey = setKey(secret)
                 val cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING")
                 cipher.init(Cipher.DECRYPT_MODE, secretKey)
-                return String(
-                    cipher.doFinal(
-                        Base64.getDecoder().decode(strToDecrypt)
-                    )
-                )
+                return cipher.doFinal(strToDecrypt)
             } catch (e: Exception) {
                 println("Error while decrypting: $e")
             }
-            return ""
+            return byteArrayOf()
         }
 
-        fun cast2UserInfoEnc(userInfo: UserInfo, key: String): UserInfoEnc {
-            return UserInfoEnc(
-                0, userInfo.userId, encrypt(userInfo.subject, key),
-                encrypt(userInfo.login, key), encrypt(userInfo.password, key)
+        @Throws(Exception::class)
+        fun readFile(filePath: String): ByteArray {
+            val file = File(filePath)
+            val fileContents = file.readBytes()
+            val inputBuffer = BufferedInputStream(
+                FileInputStream(file)
             )
+
+            inputBuffer.read(fileContents)
+            inputBuffer.close()
+
+            return fileContents
         }
 
-        fun cast2UserInfo(userInfoEnc: UserInfoEnc, key: String): UserInfo {
-            return UserInfo(
-                0, userInfoEnc.userId, decrypt(userInfoEnc.subject, key),
-                decrypt(userInfoEnc.login, key), decrypt(userInfoEnc.password, key), Status.OUT_DATA
-            )
+        @Throws(Exception::class)
+        fun saveFile(fileData: ByteArray, path: String) {
+            val file = File(path)
+            val bos = BufferedOutputStream(FileOutputStream(file, false))
+            bos.write(fileData)
+            bos.flush()
+            bos.close()
         }
 
-        fun encryptSubject(subject: String, key: String): String {
-            return encrypt(subject, key)
+        fun encryptFile(pathIn: String, pathOut: String, key: String) {
+            try {
+                val fileData = readFile(pathIn)
+                saveFile(encrypt(fileData, key), pathOut)
+            } catch (e: Exception) {
+                println("Huston it's ERROR!!!")
+            }
+        }
+
+        fun decryptFile(pathIn: String, pathOut: String, key: String) {
+            try {
+                val fileData = readFile(pathIn)
+                saveFile(decrypt(fileData, key), pathOut)
+            } catch (e: Exception) {
+                println("Huston it's ERROR!!!")
+            }
         }
 
     }

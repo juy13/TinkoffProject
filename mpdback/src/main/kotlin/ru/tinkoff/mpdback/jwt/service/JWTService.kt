@@ -37,6 +37,10 @@ class JWTService(
         }
     }
 
+    fun getUserId(login : String) : Long {
+        return registrationRepository.findByLogin(login)?.id ?: 0
+    }
+
     private fun checkUser(registrationUser: RegistrationUser): DBrc {
         val user = registrationRepository.find(registrationUser.login, registrationUser.email)
         if (user != null) {

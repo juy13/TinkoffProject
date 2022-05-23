@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import org.springframework.stereotype.Component
 import ru.tinkoff.mpdback.broker.repository.UserInfoEncRepository
 import ru.tinkoff.mpdback.broker.service.DataEncryptionService
+import ru.tinkoff.mpdback.broker.service.FileEncryptionService
 import ru.tinkoff.mpdback.enums.Status
 import ru.tinkoff.mpdback.mpdbackApi.model.UserInfo
 import ru.tinkoff.mpdback.mpdbackApi.repository.UserInfoRepository
@@ -16,7 +17,8 @@ import javax.jms.TextMessage
 class Consumer(
     private val userInfoRepository: UserInfoRepository,
     private val userInfoEncRepository: UserInfoEncRepository,
-    private val dataEncryptionService: DataEncryptionService
+    private val dataEncryptionService: DataEncryptionService,
+    private val fileEncryptionService: FileEncryptionService
 ) : MessageListener {
 
     private val gson = Gson()
@@ -46,7 +48,16 @@ class Consumer(
                         }
                         userInfoRepository.deleteById(data.id)
                     }
-                    Status.FILE_PROGRESS -> println("Unused service") //emailService.push(event.body, event.id)
+                    Status.FILE_IN -> {
+                        println("File enc")
+                        fileEncryptionService.newFile(data)
+                        userInfoRepository.deleteById(data.id)
+                    }
+                    Status.FILE_OUT_PREPARE -> {
+                        println("File dec")
+                        fileEncryptionService.outFile(data)
+                        userInfoRepository.updateNewEv(data.id, Status.FILE_OUT.status)
+                    }
                     else -> {
                         println("Undefined service")
                     }
