@@ -12,5 +12,5 @@ enum class Status(val status : Int) {
     FILE_PROGRESS(8),
     FILE_EXIST(9),                      // if file exist in bd for uploading
     FILE_NOT_EXIST(10),                 // if it's no file in db
-    ERROR(255)
+    ERROR(11)
 }

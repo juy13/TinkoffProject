@@ -92,7 +92,7 @@ As there are some environment vars in Dockerfile, they should be configured. The
 
 1. JDBC_URL - connection path for a database. It works in or net, so postgresKotlin - name of container with DB
 2. UserPassword - password for db
-3. User - user (^o^)
+3. User - db user (^o^)
 
 ## Testing
 

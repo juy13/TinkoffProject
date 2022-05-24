@@ -43,7 +43,8 @@ dependencies {
 	testImplementation("org.junit.jupiter:junit-jupiter-params:5.8.2")
 	testImplementation("com.ninja-squad:springmockk:3.1.1")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("io.mockk:mockk:1.12.3")
+	testImplementation("io.mockk:mockk:1.12.4")
+	testImplementation("org.awaitility:awaitility-kotlin:4.1.0")
 
 	implementation("com.auth0:java-jwt:3.19.2")
 	implementation("org.springframework.security:spring-security-core:5.6.3")

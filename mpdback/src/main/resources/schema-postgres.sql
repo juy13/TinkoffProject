@@ -2,3 +2,14 @@
 ----DROP TABLE IF EXISTS users;
 --CREATE TABLE records(id serial PRIMARY KEY, login VARCHAR(255), password VARCHAR(255));
 ----CREATE TABLE users(id serial PRIMARY KEY, login VARCHAR(255));
+--DROP TABLE IF EXISTS data;
+--
+--CREATE TABLE public."data" (
+--	id int8 NOT NULL,
+--	login varchar(255) NULL,
+--	"password" varchar(255) NULL,
+--	status int4 NOT NULL,
+--	subject varchar(255) NULL,
+--	user_id int8 NOT NULL,
+--	CONSTRAINT data_pkey PRIMARY KEY (id)
+--);

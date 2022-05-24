@@ -8,3 +8,5 @@
 --INSERT INTO records(login, password) VALUES('Berlin', '3671000');
 --INSERT INTO users(login) VALUES('FT44d9CW4L44/5zyKxY1fg==');
 --INSERT INTO users(login) VALUES('LOH');
+
+--INSERT INTO data(login, "password", status, subject, user_id) VALUES("test1", "test2", 1, "test1", 1);
