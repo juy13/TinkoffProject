@@ -1,0 +1,367 @@
+{
+	"info": {
+		"_postman_id": "59fefcaa-2919-4600-9de5-e3ef56f3712f",
+		"name": "MPD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18000954"
+	},
+	"item": [
+		{
+			"name": "mpdback",
+			"item": [
+				{
+					"name": "white",
+					"item": [
+						{
+							"name": "addData",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NTMzNDk3NzYsImlhdCI6MTY1MzMzMTc3Nn0.wd2622mGvfr-3QOEOwe_AawVuxXkb_A5VTmmNzQgYLijmKP0TM-xa44b0jKT_uPflVeLuhjP1J9gbvzIJgcDEA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\" : 51,\n    \"subject\" : \"wq\",\n    \"login\" : \"ewew\",\n    \"password\" : \"qwwqq\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/white-api/add-record",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"white-api",
+										"add-record"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "prepare all",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NTMzNDk3NzYsImlhdCI6MTY1MzMzMTc3Nn0.wd2622mGvfr-3QOEOwe_AawVuxXkb_A5VTmmNzQgYLijmKP0TM-xa44b0jKT_uPflVeLuhjP1J9gbvzIJgcDEA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/white-api/prepare-data-all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"white-api",
+										"prepare-data-all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "prepare by subject",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NTMzMzkzMTksImlhdCI6MTY1MzMyMTMxOX0.wODPX08FPv8MZy40bw9H36K27l2LWE3llZvWB9mZhvW_i3rhdCgS9YQoPBtFPeNQmILKNn95Tb_p3rV55q4DRA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/white-api/prepare-data-by-subject?subject=qwe",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"white-api",
+										"prepare-data-by-subject"
+									],
+									"query": [
+										{
+											"key": "subject",
+											"value": "qwe"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get All",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NTMzNDk3NzYsImlhdCI6MTY1MzMzMTc3Nn0.wd2622mGvfr-3QOEOwe_AawVuxXkb_A5VTmmNzQgYLijmKP0TM-xa44b0jKT_uPflVeLuhjP1J9gbvzIJgcDEA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/white-api/get-all-data",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"white-api",
+										"get-all-data"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NTMzNDk3NzYsImlhdCI6MTY1MzMzMTc3Nn0.wd2622mGvfr-3QOEOwe_AawVuxXkb_A5VTmmNzQgYLijmKP0TM-xa44b0jKT_uPflVeLuhjP1J9gbvzIJgcDEA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "boundary",
+										"value": "something",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/home/juy13/Desktop/Postman/Postman/log.txt"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/white-api/upload",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"white-api",
+										"upload"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "download",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NTMzNDk3NzYsImlhdCI6MTY1MzMzMTc3Nn0.wd2622mGvfr-3QOEOwe_AawVuxXkb_A5VTmmNzQgYLijmKP0TM-xa44b0jKT_uPflVeLuhjP1J9gbvzIJgcDEA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/white-api/download?name=log.txt",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"white-api",
+										"download"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "log.txt"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "prepare download",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NTMzNDk3NzYsImlhdCI6MTY1MzMzMTc3Nn0.wd2622mGvfr-3QOEOwe_AawVuxXkb_A5VTmmNzQgYLijmKP0TM-xa44b0jKT_uPflVeLuhjP1J9gbvzIJgcDEA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/white-api/prepare-file-by-name?name=log.txt",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"white-api",
+										"prepare-file-by-name"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "log.txt"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "yJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYXZhaW51c2UiLCJleHAiOjE2NTMyODU3NjUsImlhdCI6MTY1MzI2Nzc2NX0.-dwXWn2-IAiB7p-yq5efawtwsbdarL95-AKiJW3hB61YrUbyfB_52HWKVSByXwYu5VBjnEyF7JR2Xl3l_sc-Eg",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "newUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"javainuse\",\n    \"password\": \"password\",\n    \"email\" : \"test@test.ru\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/new",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"javainuse\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/authenticate",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

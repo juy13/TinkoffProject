@@ -41,7 +41,9 @@ class JwtAuthenticationController(
             .loadUserByUsername(authenticationRequest.username)
         val token = jwtTokenUtil.generateToken(userDetails)
 
-        return ResponseEntity.ok(AuthUserOk(AuthRc.AuthOK, token))
+        val userId = mpdService.getUserId(authenticationRequest.username)
+
+        return ResponseEntity.ok(AuthUserOk(AuthRc.AuthOK, userId, token))
     }
 
     @RequestMapping(value = ["/new"], method = [RequestMethod.POST])

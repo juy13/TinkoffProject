@@ -11,9 +11,8 @@ import javax.persistence.*
 data class RegistrationUser(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true) //, columnDefinition = "serial"
-//    @Column()
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false, unique = true)
     val id: Long = 0,
 
     @Column(name="login", nullable = false, unique = true)

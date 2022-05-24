@@ -17,36 +17,34 @@ class JWTService(
     fun registrationUser(registrationUser: RegistrationUser): DBRegistration {
         val newPass = bCryptPasswordEncoder.encode(registrationUser.password)
         when (checkUser(registrationUser)) {
-            DBrc.ExistUser -> return DBRegistration(DBrc.ExistUser)
+            DBrc.DBExistUser -> return DBRegistration(DBrc.DBExistUser)
             DBrc.ExistLogin -> return DBRegistration(DBrc.ExistLogin)
             DBrc.ExistEmail -> return DBRegistration(DBrc.ExistEmail)
             else -> {}
         }
-        val id = registrationRepository.max()
-        return if (id != null) {
-            try {
-                val user = registrationRepository.save(
-                    RegistrationUser(
-                        id.toLong()+ 1,
-                        registrationUser.login,
-                        newPass,
-                        registrationUser.email
-                    )
+        return try {
+            val user = registrationRepository.save(
+                RegistrationUser(
+                    0,
+                    registrationUser.login,
+                    newPass,
+                    registrationUser.email
                 )
-                DBRegistration(DBrc.DBOk, user.id)
-            } catch (e : Exception) {
-                DBRegistration(DBrc.DBError)
-            }
-        } else {
+            )
+            DBRegistration(DBrc.DBOk, user.id)
+        } catch (e: Exception) {
             DBRegistration(DBrc.DBError)
         }
     }
 
-    private fun checkUser(registrationUser: RegistrationUser) : DBrc {
+    fun getUserId(login : String) : Long {
+        return registrationRepository.findByLogin(login)?.id ?: 0
+    }
+
+    private fun checkUser(registrationUser: RegistrationUser): DBrc {
         val user = registrationRepository.find(registrationUser.login, registrationUser.email)
-        if (user != null)
-        {
-            return DBrc.ExistUser
+        if (user != null) {
+            return DBrc.DBExistUser
         }
         val login = registrationRepository.findByLogin(registrationUser.login)
         if (login != null) {
