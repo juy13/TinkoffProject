@@ -63,17 +63,6 @@ class ProducerService() {
         }
     }
 
-//    @Scheduled(cron = "*/5 * * * * ?")
-//    fun produceNewFile() {
-//        val newEvents = userInfoRepository?.search4InData(Status.FILE_IN.status)
-//        newEvents?.forEach {
-//            if (it.status != Status.ERROR) {
-//                userInfoRepository?.updateNewEv(it.id, Status.FILE_PROGRESS.status)
-//                sendMessageToDestination(it)
-//            }
-//        }
-//    }
-
     fun sendMessageToDestination(message: UserInfo) {
         val gson = Gson()
         val jsonString = gson.toJson(message)

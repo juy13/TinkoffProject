@@ -4,7 +4,6 @@ package ru.tinkoff.mpdback.broker.service
 import org.springframework.stereotype.Service
 import ru.tinkoff.mpdback.broker.model.UserInfoEnc
 import ru.tinkoff.mpdback.broker.repository.UserInfoEncRepository
-import ru.tinkoff.mpdback.enums.Type
 import ru.tinkoff.mpdback.jwt.repository.RegistrationRepository
 import ru.tinkoff.mpdback.mpdbackApi.model.UserInfo
 

@@ -9,7 +9,7 @@ plugins {
 
 
 group = "ru.tinkoff"
-version = "0.0.1-SNAPSHOT"
+version = "0.0.1"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
@@ -57,10 +57,11 @@ dependencies {
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "16"
+		jvmTarget = "11"
 	}
 }
 
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+

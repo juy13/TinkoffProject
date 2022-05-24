@@ -3,7 +3,6 @@ package ru.tinkoff.mpdback.broker.model
 import lombok.AllArgsConstructor
 import lombok.NoArgsConstructor
 import ru.tinkoff.mpdback.enums.Status
-import ru.tinkoff.mpdback.enums.Type
 import ru.tinkoff.mpdback.mpdbackApi.model.UserInfo
 import java.io.*
 import java.security.MessageDigest
