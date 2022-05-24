@@ -6,11 +6,11 @@ ENV UserPassword tinkoff
 ENV User tinkoff
 #copy jar from target to image
 FROM gradle:7.4-jdk11-alpine as builder
-ADD build/libs/mpdback-0.0.1.jar /usr/src/mpdback-0.0.1-plain.jar
+ADD build/libs/mpdback-0.0.1.jar /usr/src/mpdback-0.0.1.jar
 
 #set work dir to jar-file path
 WORKDIR /usr/src
 #port expose
 EXPOSE 8080
 
-ENTRYPOINT java -Dspring.datasource.url=$JDBC_URL -Dspring.datasource.username=$UserPassword -Dspring.datasource.password=$User  -jar mpdback-0.0.1-plain.ja
+ENTRYPOINT java -Dspring.datasource.url=$JDBC_URL -Dspring.datasource.username=$UserPassword -Dspring.datasource.password=$User  -jar mpdback-0.0.1.jar

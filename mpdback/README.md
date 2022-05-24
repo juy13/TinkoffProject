@@ -9,6 +9,33 @@
 5. Docker
 6. Nginx
 
+## Nginx and firewall setting
+
+Firstly, install nginx. Configuration file looks like:
+
+```
+server {
+     listen 12000;
+     server_name mpdback;
+     satisfy any;
+     allow 127.0.0.1;
+     location / {
+       proxy_pass http://127.0.0.1:8080;
+       access_log /var/log/nginx/mpdback.log;
+       error_log /var/log/nginx/mpdback_error.log;
+     }
+}
+```
+Restart nginx service and setting firewall:
+
+```shell
+ufw allow 22
+ufw allow 12000
+ufw enable
+systemctl reload nginx
+```
+
+
 ## Docker setting
 
 ### Prepare database
