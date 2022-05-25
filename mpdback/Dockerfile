@@ -13,4 +13,7 @@ WORKDIR /usr/src
 #port expose
 EXPOSE 8080
 
+RUN mkdir /var/tmp/mpd
+RUN mkdir /var/tmp/mpdEnc
+
 ENTRYPOINT java -Dspring.datasource.url=$JDBC_URL -Dspring.datasource.username=$UserPassword -Dspring.datasource.password=$User  -jar mpdback-0.0.1.jar
